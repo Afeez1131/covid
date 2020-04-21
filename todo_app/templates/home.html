@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- {% if api %}
+
+	{{ api }}
+
+{% endif %} -->
+{% if api %}
+	
+<table class="table table-bordered">
+	<thead>
+		 	<th> Country</th>
+		 	<th> Flag </th>
+		 	<th> Slug</th>
+		 </thead>
+		{% for item in api %}
+		<tr >
+
+			<td><a href="{% url 'details' item.Slug %}">{{ item.Country }}</a></td>
+				
+			<td> <img src="https://www.countryflags.io/{{ item.ISO2 }}/shiny/24.png"></td>
+			<td>{{ item.Slug }} </td>
+			<!-- <td><a href="{% url 'confirmed' item.Slug %}"> {{ confirm }} </a></td> -->
+
+			
+			
+		{% endfor %}
+		</tr>
+</table> 
+<!-- {% for item in api %}
+
+	
+	{{ item.Slug }}<br/>
+{% endfor %}
+{% endif %}-->
+
+{% endblock %} 

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if api %}
+
+<table class="table table-bordered table-hover">
+	<thead class="thead-dark">
+		 	<th> <center>Country</center></th>
+		 	<th><center>Latitude</center></th>
+		 	<th> <center>Longitude</center></th>
+		 	<th><center>Confirmed</center></th>
+		 	<th><center>Recovered</center></th>
+		 	<th><center>Active</center></th>
+		 	<th><center>Date</center></th>
+		 </thead>
+		{% for item in api %}
+		
+   
+		<tr >
+			<td><center> {{item.Country}}</center></td>
+			<td> <center>{{item.Lat}}</center></td>
+			<td> <center>{{item.Lon}}</center></td>
+			<td class = "{{ nature}}"> <center>{{item.Confirmed}}</center></td>
+			<td> <center>{{item.Recovered}}</center></td>
+			<td> <center>{{item.Active}}</center></td>
+			<td> <center>{{item.Date}}</center></td>
+
+
+		{% endfor %}
+
+<!-- {'Country': 'Australia', 'CountryCode': 'AU', 'Province': 'Victoria', 'City': '', 'CityCode': '', 'Lat': '-37.81', 'Lon': '144.96', 'Confirmed': 1, 'Deaths': 0, 'Recovered': 0, 'Active': 0, 'Date': '2020-01-26T00:00:00Z'}, -->
+
+
+<!-- 		 "Country": "Switzerland",
+    "CountryCode": "CH",
+    "Lat": "46.82",
+    "Lon": "8.23",
+    "Cases": 1,
+    "Status": "confirmed",
+    "Date": "2020-02-25T00:00:00Z"
+ -->
+	
+
+{% endif %}
+{% endblock %}
